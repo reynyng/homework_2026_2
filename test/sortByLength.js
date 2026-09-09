@@ -18,4 +18,18 @@ QUnit.module("Тестируем функцию sortByLength", function() {
 
         assert.deepEqual(result, ["hello"], "Массив с одной строкой должен вернуть ту же строку.");
     });
+
+    QUnit.test("Правильно сортирует массив с одной строкой", function(assert) {
+        const result = sortByLength([1, 2, 3]);
+
+        assert.deepEqual(result, [1, 2, 3], "Массив с одной строкой должен вернуть ту же строку.");
+    });
+    
+    QUnit.test("Правильно сортирует строки по длине", function(assert) {
+        const source = ["apple", "banana", "kiwi", "fig", "grape"];
+        const result = sortByLength(["apple", "banana", "kiwi", "fig", "grape"]);
+
+        assert.deepEqual(result, ["fig", "kiwi", "apple", "grape", "banana"], "Строки должны быть отсортированы по длине.");
+        assert.deepEqual(source, ["apple", "banana", "kiwi", "fig", "grape"], "При этом исходный массив не изменился.");
+    });
 });

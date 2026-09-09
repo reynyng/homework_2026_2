@@ -19,7 +19,7 @@ QUnit.module("Тестируем функцию sortByLength", function() {
         assert.deepEqual(result, ["hello"], "Массив с одной строкой должен вернуть ту же строку.");
     });
 
-    QUnit.test("Правильно сортирует массив с одной строкой", function(assert) {
+    QUnit.test("Правильно сортирует массив с другими данными", function(assert) {
         const result = sortByLength([1, 2, 3]);
 
         assert.deepEqual(result, [1, 2, 3], "Массив с одной строкой должен вернуть ту же строку.");

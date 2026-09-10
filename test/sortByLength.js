@@ -32,4 +32,11 @@ QUnit.module("Тестируем функцию sortByLength", function() {
         assert.deepEqual(result, ["fig", "kiwi", "apple", "grape", "banana"], "Строки должны быть отсортированы по длине.");
         assert.deepEqual(source, ["apple", "banana", "kiwi", "fig", "grape"], "При этом исходный массив не изменился.");
     });
+
+    QUnit.test("Правильно реагирует на типы данных, отличные от массива", function(assert) {
+        const result = sortByLength("state");
+
+        assert.deepEqual(result, "state", "Возвращает изначальное значение");
+    });
 });
+

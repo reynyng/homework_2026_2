@@ -15,17 +15,17 @@
  * @returns {Array<Var>}
  */
 const mysort = function (vars, compare) { 
-    if (!Array.isArray(vars)){
+    if (!Array.isArray(vars)) {
     return vars;
     }
         let res = [...vars];
-        if (res.length < 2){
+        if (res.length < 2) {
             return res; 
         }
 
-        for (let i = 0; i < res.length-1; i++){
-            for (let j = 0; j < res.length-i-1; j++){
-                if (compare(res[j], res[j+1]) > 0){
+        for (let i = 0; i < res.length-1; i++) {
+            for (let j = 0; j < res.length-i-1; j++) {
+                if (compare(res[j], res[j+1]) > 0) {
                         [res[j], res[j+1]] = [res[j+1], res[j]];
                 }
             }
@@ -48,12 +48,13 @@ const mysort = function (vars, compare) {
  * @returns {Array<String>}
  */
 const sortByLength = function (strings) {
-    if(!Array.isArray(strings) || typeof(strings[0]) !== "string" ){
+    if(!Array.isArray(strings) || typeof(strings[0]) !== "string" ) {
         return strings;
     }
     let res = [...strings]
 
-    return mysort(res, (a, b) => { if (a.length != b.length){
+    return mysort(res, (a, b) => { 
+        if (a.length != b.length) {
             return a.length - b.length;
         }
         else {

@@ -18,19 +18,18 @@ const mysort = function (vars, compare) {
     if (!Array.isArray(vars)) {
     return vars;
     }
-        let res = [...vars];
-        if (res.length < 2) {
-            return res; 
-        }
+    if (vars.length < 2) {
+        return vars; 
+    }
 
-        for (let i = 0; i < res.length-1; i++) {
-            for (let j = 0; j < res.length-i-1; j++) {
-                if (compare(res[j], res[j+1]) > 0) {
-                        [res[j], res[j+1]] = [res[j+1], res[j]];
-                }
+    for (let i = 0; i < vars.length-1; i++) {
+        for (let j = 0; j < vars.length-i-1; j++) {
+            if (compare(vars[j], vars[j+1]) > 0) {
+                    [vars[j], vars[j+1]] = [vars[j+1], vars[j]];
             }
         }
-    return res;
+    }
+    return vars;
 }
 
 /**
@@ -48,17 +47,12 @@ const mysort = function (vars, compare) {
  * @returns {Array<String>}
  */
 const sortByLength = function (strings) {
-    if(!Array.isArray(strings) || typeof(strings[0]) !== "string" ) {
+    if(!Array.isArray(strings) || !strings.every(item => typeof item === "string") ) {
         return strings;
     }
     let res = [...strings]
 
     return mysort(res, (a, b) => { 
-        if (a.length != b.length) {
-            return a.length - b.length;
-        }
-        else {
-            return a.localeCompare(b);
-        }
+        return (a.length != b.length) ? a.length - b.length : a.localeCompare(b);
     })
 }

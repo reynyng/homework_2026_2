@@ -50,9 +50,9 @@ const sortByLength = function (strings) {
     if(!Array.isArray(strings) || !strings.every(item => typeof item === "string") ) {
         return strings;
     }
-    let res = [...strings]
+    const res = [...strings]
 
     return mysort(res, (a, b) => { 
-        return (a.length != b.length) ? a.length - b.length : a.localeCompare(b);
+        return (a.length !== b.length) ? a.length - b.length : a.localeCompare(b);
     })
 }
